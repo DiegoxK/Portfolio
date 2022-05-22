@@ -67,7 +67,7 @@ function Header() {
             <div className="v-separator"></div>
           </li>
 
-          <li>
+          {/* <li>
             <a href="/login">
               <img
                 src="/assets/nav/Login.png"
@@ -75,7 +75,7 @@ function Header() {
                 className="login"
               />
             </a>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </header>

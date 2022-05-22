@@ -1,32 +1,23 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 // Components
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 import MyInfoCard from "../components/Home/MyInfoCard";
 import RecentPosts from "../components/RecentPosts";
 
-function MainLayout({ routes }) {
+function MainLayout() {
   return (
-    <div className="container home-desktop">
-      <MyInfoCard />
-      <SubRoute routes={routes} />
-      <RecentPosts />
-    </div>
-  );
-}
-
-function SubRoute({ routes }) {
-  return (
-    <Routes>
-      {routes.map((route, index) => {
-        <Route
-          key={index}
-          path={route.path}
-          exact={route.exact}
-          element={route.component}
-        />;
-      })}
-    </Routes>
+    <>
+      <Header />
+      <div className="container home-desktop">
+        <MyInfoCard />
+        <Outlet />
+        <RecentPosts />
+      </div>
+      <Footer />
+    </>
   );
 }
 

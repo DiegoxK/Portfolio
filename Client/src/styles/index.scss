@@ -1,26 +1,81 @@
+// General Config
+// ================================================================================
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap");
 
 // variables
-$primary-color: #684d45;
+$primary-color: #684d45; // primary color for all components
 $secondary-color: #f4ede7;
 $secondary-light: #f7f5f2;
 $sub-color: #ede3db;
+$link-color: #5f8657; // link color
+$success-color: #52c41a; // success state color
+$warning-color: #faad14; // warning state color
+$error-color: #f5222d; // error state color
 
-// config de fuente y imagen de fondo
+// Screen Breaks
+$screen-xs: 480px;
+$screen-xs-min: $screen-xs;
+
+$screen-sm: 576px;
+$screen-sm-min: $screen-sm;
+
+$screen-md: 768px;
+$screen-md-min: $screen-md;
+
+$screen-lg: 992px;
+$screen-lg-min: $screen-lg;
+
+$screen-xl: 1200px;
+$screen-xl-min: $screen-xl;
+
+$screen-xxl: 1600px;
+$screen-xxl-min: $screen-xxl;
+
+// Container
+.container {
+  width: 100%;
+  display: block;
+  // align-self: center; mover flex items
+  margin: auto;
+}
+
+@mixin make-container($minWidth, $breakpoint) {
+  @media (min-width: $minWidth) {
+    .container {
+      max-width: $breakpoint;
+    }
+  }
+}
+
+@include make-container($screen-xs-min, $screen-xs);
+@include make-container($screen-sm-min, $screen-sm);
+@include make-container($screen-md-min, $screen-md);
+@include make-container($screen-lg-min, $screen-lg);
+@include make-container($screen-xl-min, $screen-xl);
+@include make-container($screen-xxl-min, $screen-xxl);
+
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background-image: url("/assets/background.png");
 }
 
-// retirar los estilos default de las listas
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
+a {
+  color: $link-color;
+  text-decoration: none;
+}
+
+//  View for resolutions smaller than 992px (Phone)
+// ================================================================================
+
 // Header
+// ================================================================================
 .header {
   display: flex;
   justify-content: space-between;
@@ -28,7 +83,6 @@ ul {
   padding: 10px 0 10px 0;
   box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.25);
 
-  // Separadores
   .separator {
     display: none;
   }
@@ -37,43 +91,81 @@ ul {
     display: none;
   }
 
-  // Ajuste del logo
   .nav-name {
     height: 100%;
-    margin-left: 3%;
+    margin: 0 10%;
   }
 
-  // Oculta los links de la navar en la vista de movil
+  // Hide Navar elements
   .hide-mobile {
     display: none;
   }
 
-  // icono de menu desplegable
+  // Menu Icon
   .menu {
     width: 40px;
     margin: 1.8em 1.9em 0 0;
   }
+
+  // Nav elements
+  nav {
+    ul {
+      position: fixed;
+      width: 55%;
+      top: 0;
+      right: 0;
+      text-align: left;
+      background: $sub-color;
+      height: 100%;
+      z-index: 5;
+      padding-top: 3em;
+      opacity: 0.9;
+
+      li {
+        padding: 1em 2em;
+      }
+
+      li:hover {
+        background-color: $secondary-color;
+      }
+    }
+
+    // "X" Button
+    .exit-btn {
+      margin-bottom: 1em;
+      margin-top: -1.3em;
+      text-align: right;
+      padding: 0 1.4em;
+
+      img {
+        width: 45px;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 // Info card
+// ================================================================================
 .profile-container {
   background-color: $secondary-color;
+  padding-bottom: 2em;
   margin: 3em;
   text-align: center;
-  padding: 4em 7em;
   box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
 
-  // Imagen de perfil
+  // Profile Image
   .profile-picture {
+    margin: 3em 3em 0 3em;
     align-self: center;
     width: 200px;
     border: 5px solid $primary-color;
     border-radius: 50%;
   }
 
-  // configuracion redes sociales
+  // Social media Icons
   .contacts {
-    margin-top: 15%;
+    margin: 0 6em;
     display: flex;
     justify-content: space-between;
 
@@ -83,31 +175,8 @@ ul {
   }
 }
 
-// Info de la pagina home
-
-.home-image {
-  width: 100%;
-  margin-bottom: 3em;
-  display: none;
-}
-
-.info-container {
-  background-color: $secondary-color;
-  margin: 3em;
-  padding: 2.5em;
-  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
-  color: $primary-color;
-
-  h2 {
-    font-weight: bold;
-  }
-
-  p {
-    font-size: 20px;
-  }
-}
-
-// Posts Recientes
+// Recent Posts
+// ================================================================================
 .posts-title {
   color: $primary-color;
   margin-left: 1.5em;
@@ -122,7 +191,7 @@ ul {
   box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
   color: $primary-color;
 
-  h2 {
+  h3 {
     font-weight: bold;
   }
 
@@ -136,10 +205,36 @@ ul {
   }
 }
 
-// Footer
+// General Page Information (Home / About / Projects ...)
+// ================================================================================
+.page-info {
+  .info-container {
+    background-color: $secondary-color;
+    margin: 3em;
+    padding: 2.5em;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: $primary-color;
 
+    h2 {
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 20px;
+    }
+  }
+}
+
+.home-image {
+  width: 100%;
+  margin-bottom: 3em;
+  display: none;
+}
+
+// Footer
+// ================================================================================
 footer {
-  // Colores de fondo
+  // Grass colors
   .dark-green {
     width: 100%;
     height: 10px;
@@ -180,7 +275,6 @@ footer {
     position: relative;
     top: -4px;
     padding-top: 2em;
-    padding-left: 5em;
     padding-bottom: 5em;
     width: 100%;
     // height: 599px;
@@ -194,21 +288,27 @@ footer {
       margin-top: 2em;
     }
 
-    .info {
-      li {
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 24px;
-        color: #f4ede7;
-
-        a {
-          font-weight: 900;
-          font-size: 20px;
+    // Main Footer info
+    .footer-container {
+      margin-left: 5em;
+      .info {
+        justify-content: space-between;
+        li {
+          font-weight: 600px;
+          font-size: 16px;
           line-height: 24px;
           color: #f4ede7;
+
+          a {
+            font-weight: 900;
+            font-size: 20px;
+            line-height: 24px;
+            color: #f4ede7;
+          }
         }
       }
     }
+
     .contacts {
       margin-top: 2em;
       display: flex;
@@ -222,46 +322,9 @@ footer {
   }
 }
 
-// ================================================================================
-
-nav {
-  ul {
-    position: fixed;
-    width: 55%;
-    top: 0;
-    right: 0;
-    text-align: left;
-    background: $sub-color;
-    height: 100%;
-    z-index: 5;
-    padding-top: 3em;
-    opacity: 0.9;
-
-    li {
-      padding: 1em 2em;
-    }
-
-    li:hover {
-      background-color: $secondary-color;
-    }
-  }
-
-  .exit-btn {
-    margin-bottom: 1em;
-    margin-top: -1.3em;
-    text-align: right;
-    padding: 0 1.4em;
-
-    img {
-      width: 45px;
-      cursor: pointer;
-    }
-  }
-}
-
+// View for resolutions higher than 992px (Tablet)
 // ===============================================================================
-
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: $screen-lg) {
   .header {
     justify-content: left;
     .show-desktop {
@@ -274,6 +337,7 @@ nav {
       display: block;
     }
 
+    // Nav links separator
     .v-separator {
       content: "";
       display: inline-block;
@@ -285,43 +349,57 @@ nav {
     }
 
     .nav-name {
-      margin-right: 0.5em;
+      height: 80px;
+      margin: 0 3em;
     }
 
     .hide-desktop {
       display: none;
     }
-  }
+    nav {
+      ul {
+        position: inherit;
+        width: auto;
+        background: none;
+        height: auto;
+        display: flex;
+        padding-top: 0;
 
-  nav {
-    ul {
-      position: inherit;
-      width: auto;
-      background: none;
-      height: auto;
-      display: flex;
-      padding-top: 0;
+        li {
+          float: left;
+          padding: 0 0.4em;
+          margin-top: 1em;
+        }
 
-      li {
-        float: left;
-        padding: 0 0.4em;
-        margin-top: 1em;
-      }
-
-      li:hover {
-        background-color: $secondary-light;
-        border-radius: 10%;
+        li:hover {
+          background-color: $secondary-light;
+          border-radius: 10%;
+        }
       }
     }
   }
 }
 
+// View for resolutions higher than 1200px (Desktop)
 // ===============================================================================
+@media only screen and (min-width: $screen-xl) {
+  // Layout
+  .home-desktop {
+    display: grid;
+    grid-template-columns: 30% auto;
 
-@media only screen and (min-width: 1200px) {
-  // header
+    .recent-posts {
+      grid-row: span 3;
+    }
+
+    .page-info {
+      grid-row: span 2;
+    }
+  }
 
   .header {
+    height: 60px;
+
     justify-content: left;
 
     .show-desktop {
@@ -329,54 +407,48 @@ nav {
     }
 
     .nav-name {
-      margin-right: 3em;
+      height: 60px;
+      margin: 0 1em;
+    }
+
+    nav {
+      ul {
+        li {
+          margin-top: 0.3em;
+        }
+        img {
+          margin-top: 0.3em;
+          height: 40px;
+        }
+      }
     }
   }
 
-  // content
-
-  .home-image {
-    width: 100%;
-    margin-bottom: 3em;
-    display: block;
-  }
-
-  .posts-title {
-    color: $primary-color;
-    margin-left: 0;
-    font-weight: bold;
-    font-size: 30px;
-  }
-
-  // Modificar cuadricula
-  .home-desktop {
-    display: grid;
-    grid-template-columns: 33.3333333% auto;
-
-    .recent-posts {
-      grid-row: span 3;
-    }
-
-    .home-info {
-      grid-row: span 2;
-    }
-  }
-
-  // Tamaño imagen de perfil
+  // Profile image
   .profile-container {
-    margin: 3em 0;
-    margin-right: 1em;
+    margin: 2em 1em 0 0;
+    padding: 0;
+
     .profile-picture {
-      width: 210px;
+      width: 180px;
+      margin: 2.5em 2.5em 0 2.5em;
+    }
+
+    p {
+      color: $primary-color;
+    }
+
+    .contacts {
+      margin: 0 3em 1em 3em;
+      padding-bottom: 2em;
     }
   }
 
-  // Tamaño info en home
-
-  .home-info {
+  // General Page Information (Home / About / Projects ...)
+  .page-info {
     .info-container {
       background-color: $secondary-color;
-      margin: 3em 0 2em 1.5em;
+      margin: 2em 0 2em 1em;
       padding: 2.5em;
       box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
       color: $primary-color;
@@ -392,24 +464,49 @@ nav {
     }
   }
 
-  // Info Container
+  // home Image
+  .home-image {
+    width: 100%;
+    margin-bottom: 3em;
+    display: block;
+  }
 
+  // Info Container
   .recent-posts {
     .posts-container {
       margin: 0 1em 3em 0;
+      padding: 1.5em;
+
+      li {
+        padding: 1px 1em 1em 1em;
+      }
+
+      p {
+        font-size: 14px;
+      }
     }
   }
 
-  // Footer
+  // Recent posts
+  .posts-title {
+    color: $primary-color;
+    margin: 0;
+    font-weight: bold;
+    font-size: 23px;
+  }
 
+  // Footer
   .dark-brown {
-    display: flex;
-    .info {
-      margin-right: 12em;
-    }
-    .contacts {
-      img {
-        margin-right: 4em;
+    .footer-container {
+      display: flex;
+
+      .info {
+        margin-left: 8em;
+      }
+      .contacts {
+        img {
+          margin: 0 1em;
+        }
       }
     }
   }
