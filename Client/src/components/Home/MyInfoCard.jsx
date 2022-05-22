@@ -8,7 +8,7 @@ function MyInfoCard() {
           className="profile-picture"
         />
 
-        <p>"La vida es una lenteja"</p>
+        <p>Web - UI Desinger</p>
         <div className="contacts">
           <a href="#">
             <img src="/assets/social media/github.svg" alt="" />

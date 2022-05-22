@@ -9,7 +9,7 @@ function MyBlog() {
           non tenetur porro consectetur est praesentium animi, magnam
           reprehenderit harum molestiae? Lorem ipsum dolor sit amet consectetur
         </p>
-        <a href="/posts/myblog/post1">Leer mas</a>
+        <a href="/posts/post1">Leer mas</a>
       </div>
       <div className="info-container">
         <h2>Post2</h2>

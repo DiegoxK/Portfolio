@@ -73,7 +73,6 @@ a {
 
 //  View for resolutions smaller than 992px (Phone)
 // ================================================================================
-
 // Header
 // ================================================================================
 .header {
@@ -154,6 +153,12 @@ a {
   text-align: center;
   box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
 
+  p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 300;
+    font-size: 1.4em;
+  }
+
   // Profile Image
   .profile-picture {
     margin: 3em 3em 0 3em;
@@ -221,6 +226,27 @@ a {
 
     p {
       font-size: 20px;
+    }
+  }
+
+  .project-container {
+    .project-card {
+      padding: 1em;
+      background-color: $sub-color;
+      margin-bottom: 2em;
+
+      h3 {
+        font-size: 1.5em;
+      }
+
+      a {
+        font-size: 1.2em;
+      }
+
+      .project-img {
+        border-radius: 5%;
+        width: 100%;
+      }
     }
   }
 }
@@ -386,7 +412,7 @@ footer {
   // Layout
   .home-desktop {
     display: grid;
-    grid-template-columns: 30% auto;
+    grid-template-columns: 25% auto;
 
     .recent-posts {
       grid-row: span 3;
@@ -461,6 +487,52 @@ footer {
         font-size: 16px;
         line-height: 2em;
       }
+    }
+  }
+
+  .project-container {
+    .project-card {
+      display: grid;
+      grid-template-columns: auto auto;
+      padding: 1em;
+      background-color: $sub-color;
+      margin-bottom: 2em;
+
+      .project-img {
+        border-radius: 5%;
+        grid-row: 1 / span 3;
+      }
+
+      p {
+        margin-left: 1em;
+        margin-right: 1em;
+        grid-column: 2 / span 2;
+      }
+
+      h3 {
+        margin: 0;
+        margin-left: 0.6em;
+        font-size: 1.5em;
+        grid-column: 2 / span 2;
+      }
+
+      a {
+        margin-right: 2em;
+        font-size: 1em !important;
+        grid-column: 3;
+      }
+    }
+  }
+
+  .post-entry {
+    display: grid;
+    grid-template-columns: 75% auto;
+    .page-info {
+      margin-right: 2em;
+    }
+
+    .recent-posts {
+      margin-top: 2em;
     }
   }
 

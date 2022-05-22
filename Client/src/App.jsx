@@ -10,8 +10,8 @@ import HomeInfo from "./components/Home/HomeInfo";
 import About from "./views/About";
 import MyBlog from "./views/MyBlog";
 import Projects from "./views/Projects";
-import BlogEntry from "./views/BlogEntry";
-import BlogLayout from "./Layouts/BlogLayout";
+import InfoEntry from "./views/InfoEntry";
+import BasicLayout from "./Layouts/BasicLayout";
 
 // Main Router
 function App() {
@@ -26,9 +26,14 @@ function App() {
           <Route path="projects" element={<Projects />} />
         </Route>
 
+        {/* Project Page*/}
+        <Route path="/project" element={<BasicLayout />}>
+          <Route path=":projectid" element={<InfoEntry />} />
+        </Route>
+
         {/* Blog Page */}
-        <Route path="/posts" element={<BlogLayout />}>
-          <Route path="myblog/:postid" element={<BlogEntry />} />
+        <Route path="/posts" element={<BasicLayout />}>
+          <Route path=":postid" element={<InfoEntry />} />
         </Route>
 
         {/* Login */}
