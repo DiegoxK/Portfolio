@@ -8,7 +8,7 @@ function MyInfoCard() {
           className="profile-picture"
         />
 
-        <p>Web - UI Desinger</p>
+        <p>Web & UI Desinger</p>
         <div className="contacts">
           <a href="#">
             <img src="/assets/social media/github.svg" alt="" />

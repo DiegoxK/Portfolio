@@ -1,7 +1,10 @@
-import { useRef } from "react";
+import { useRef, useContext } from "react";
+import { UserContext } from "../context/UserContex";
 
 function Header() {
   const nav = useRef(null);
+
+  const { userState } = useContext(UserContext);
 
   const toggleMenu = () => {
     nav.current.classList.toggle("hide-mobile");
@@ -66,16 +69,25 @@ function Header() {
           <li className="separator">
             <div className="v-separator"></div>
           </li>
-
-          {/* <li>
-            <a href="/login">
-              <img
-                src="/assets/nav/Login.png"
-                alt="Login button"
-                className="login"
-              />
-            </a>
-          </li> */}
+          <li>
+            {userState ? (
+              <a>
+                <img
+                  src="/assets/nav/exit.svg"
+                  alt="Cerrar la edition"
+                  className="edit-button"
+                />
+              </a>
+            ) : (
+              <a href="/login">
+                <img
+                  src="/assets/nav/edit.svg"
+                  alt="Boton de edicion"
+                  className="edit-button"
+                />
+              </a>
+            )}
+          </li>
         </ul>
       </nav>
     </header>
