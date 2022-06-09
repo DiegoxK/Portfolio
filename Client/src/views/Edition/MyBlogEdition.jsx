@@ -1,4 +1,4 @@
-function MyBlog() {
+function MyBlogEdition() {
   return (
     <section className="page-info">
       <div className="info-container">
@@ -25,4 +25,4 @@ function MyBlog() {
   );
 }
 
-export default MyBlog;
+export default MyBlogEdition;

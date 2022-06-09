@@ -1,4 +1,4 @@
-function Projects() {
+function ProjectsEdition() {
   return (
     <section className="page-info">
       <div className="info-container">
@@ -58,4 +58,4 @@ function Projects() {
   );
 }
 
-export default Projects;
+export default ProjectsEdition;

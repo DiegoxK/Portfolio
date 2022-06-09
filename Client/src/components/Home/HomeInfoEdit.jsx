@@ -1,4 +1,16 @@
+import { useState } from "react";
+import SimpleMDE from "react-simplemde-editor";
+import ReactMarkdown from "react-markdown";
+import "easymde/dist/easymde.min.css";
+
 function HomeInfoEdit() {
+  const [markdownValue, setMarkdownValue] = useState("");
+
+  const onChange = (value) => {
+    setMarkdownValue(value);
+    // console.log(markdownValue);
+  };
+
   return (
     <section className="page-info">
       <div className="info-container">
@@ -8,7 +20,8 @@ function HomeInfoEdit() {
           className="home-image"
         />
         <h2>Diego Suarez</h2>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <SimpleMDE value={markdownValue} onChange={onChange} />
+        <ReactMarkdown>{markdownValue}</ReactMarkdown>
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-function InfoEntry() {
+function InfoEntryEdition() {
   return (
     <section className="page-info">
       <div className="info-container">
@@ -14,4 +14,4 @@ function InfoEntry() {
   );
 }
 
-export default InfoEntry;
+export default InfoEntryEdition;

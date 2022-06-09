@@ -1,4 +1,5 @@
 import { useRef, useContext } from "react";
+import { logout } from "../../api/apiCalls";
 import { UserContext } from "../context/UserContex";
 
 function Header() {
@@ -71,7 +72,12 @@ function Header() {
           </li>
           <li>
             {userState ? (
-              <a>
+              <a
+                onClick={() => {
+                  logout();
+                  window.location.reload();
+                }}
+              >
                 <img
                   src="/assets/nav/exit.svg"
                   alt="Cerrar la edition"

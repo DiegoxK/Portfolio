@@ -25,8 +25,8 @@ function Login() {
     e.preventDefault();
     loginUser(user)
       .then(() => {
-        setUserState(true);
         history("/");
+        window.location.reload();
       })
       .catch(() => {
         setAlert(true);

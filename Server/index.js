@@ -6,7 +6,7 @@ const morgan = require("morgan");
 require("dotenv").config();
 
 // Page Router
-const router = require("./router/page-router");
+const router = require("./router/routes");
 
 // Main Server
 const app = express();

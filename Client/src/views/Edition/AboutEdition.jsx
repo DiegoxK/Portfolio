@@ -1,4 +1,4 @@
-function About() {
+function AboutEdition() {
   return (
     <section className="page-info">
       <div className="info-container">
@@ -23,4 +23,4 @@ function About() {
   );
 }
 
-export default About;
+export default AboutEdition;

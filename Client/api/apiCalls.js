@@ -36,12 +36,26 @@ export const loginUser = async (user) => {
 
 // Get User
 export const getUser = async () => {
-  const res = await axios
-    .get(MAIN_URL + "/User", {
-      withCredentials: true,
-    })
-    .catch((err) => console.log(err));
+  let response;
+  const res = await axios.get(MAIN_URL + "/User", {
+    withCredentials: true,
+  });
+  // .catch((err) => console.log(err));
+  try {
+    response = await res.data;
+  } catch (err) {
+    response = err;
+  }
+  return response;
+};
 
-  const data = await res.data;
-  return data;
+// Logout
+export const logout = async () => {
+  const res = await axios.post(MAIN_URL + "/LogOut", {
+    withCredentials: true,
+  });
+  if (res.status == 200) {
+    return res;
+  }
+  return new Error("Unable To Logout. Please try again");
 };

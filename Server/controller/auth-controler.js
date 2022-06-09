@@ -86,49 +86,53 @@ const verifyToken = (req, res, next) => {
   if (!cookies) {
     return res.status(404).json({ message: "No token found / expired" });
   }
+
   const token = cookies.split("=")[1];
 
   // Verify if the token is correct
-  jwt.verify(String(token), JWT_KEY, (err) => {
+  jwt.verify(String(token), JWT_KEY, (err, user) => {
     if (err) {
       return res.status(400).json({ message: "invalid token" });
     }
 
     // Assign the user to the req that will be passed to getUser
-    // req.id = user.id;
+    req.id = user.id;
 
-    return res.json({ messaage: "Successfull" });
+    // return res.status(200).json({ message: "Successfull" });
   });
 
-  // next();
+  next();
 };
 
-// const getUser = async (req, res) => {
-//   const userId = req.id;
-//   let user;
+const getUser = async (req, res) => {
+  const userId = req.id;
+  let user;
 
-//   // Get the user info
-//   try {
-//     user = await User.findById(userId, "-password");
-//   } catch (err) {
-//     return new Error(err);
-//   }
+  // Get the user info
+  try {
+    user = await User.findById(userId, "-password");
+  } catch (err) {
+    return new Error(err);
+  }
 
-//   if (!user) {
-//     return res.status(404).json({ message: "User not found" });
-//   }
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
 
-//   return res.status(200).json({ user });
-// };
+  return res.status(200).json({ message: "Successfull" });
+};
 
 // ===========================================================================
 
 const logout = (req, res) => {
   const cookies = req.headers.cookie;
-  const prevToken = cookies.split("=")[1];
-  if (!prevToken) {
+
+  if (!cookies) {
     return res.status(400).json({ message: "Couldn't find token" });
   }
+
+  const prevToken = cookies.split("=")[1];
+
   jwt.verify(String(prevToken), process.env.JWT_KEY, (err, user) => {
     if (err) {
       console.log(err);
@@ -143,5 +147,5 @@ const logout = (req, res) => {
 exports.signup = signup;
 exports.login = login;
 exports.verifyToken = verifyToken;
-// exports.getUser = getUser;
+exports.getUser = getUser;
 exports.logout = logout;
