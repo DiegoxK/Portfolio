@@ -2,15 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const projectSchema = new Schema({
-  title: {
-    type: String,
-    required: true,
-  },
-  url: {
-    type: String,
-    required: true,
-  },
+const profileSchema = new Schema({
   img: {
     type: String,
     required: true,
@@ -19,10 +11,18 @@ const projectSchema = new Schema({
     type: String,
     required: true,
   },
-  md: {
+  gitUrl: {
+    type: String,
+    required: true,
+  },
+  linkeinUrl: {
+    type: String,
+    required: true,
+  },
+  twitterUrl: {
     type: String,
     required: true,
   },
 });
 
-module.exports = mongoose.model("Project", projectSchema);
+module.exports = mongoose.model("Profile", profileSchema);

@@ -1,12 +1,13 @@
 const express = require("express");
-var router = express.Router();
+const router = express.Router();
 
+const crudRouter = require("./router");
 const user = require("./auth-router");
-const blog = require("./blog-router");
 
-router.use("/usuario", user);
-router.use("/blog", blog);
-// router.use("/projects");
-// router.use("/contents");
+router.use("/auth", user);
+router.use("/blog", crudRouter);
+router.use("/projects", crudRouter);
+router.use("/contents", crudRouter);
+router.use("/profile", crudRouter);
 
 module.exports = router;

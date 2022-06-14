@@ -1,4 +1,17 @@
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "https://esm.sh/rehype-raw@6";
+import { useEffect, useState } from "react";
+import { getOne } from "../../../api/apiCalls";
+
 function HomeInfo() {
+  const [homeInfo, setHomeInfo] = useState([]);
+
+  useEffect(() => {
+    getOne("contents", "HomeInfo").then((res) => {
+      setHomeInfo(res);
+    });
+  }, []);
+
   return (
     <section className="page-info">
       <div className="info-container">
@@ -7,17 +20,10 @@ function HomeInfo() {
           alt="home image"
           className="home-image"
         />
-        <h2>Diego Suarez</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam a
-          dolor quaerat? Accusantium sunt asperiores sit cum ducimus cupiditate
-          non tenetur porro consectetur est praesentium animi, magnam
-          reprehenderit harum molestiae? Lorem ipsum dolor sit amet consectetur
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam a
-          dolor quaerat? Accusantium sunt asperiores sit cum ducimus cupiditate
-          non tenetur porro consectetur est praesentium animi, magnam
-          reprehenderit harum molestiae? Lorem ipsum dolor sit amet consectetur
-        </p>
+        <h2>{homeInfo.title}</h2>
+        <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+          {homeInfo.description}
+        </ReactMarkdown>
       </div>
     </section>
   );

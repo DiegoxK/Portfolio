@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -14,7 +14,8 @@
     "react-dom": "18.0.0",
     "react-markdown": "8.0.3",
     "react-router-dom": "6.3.0",
-    "react-simplemde-editor": "5.0.2"
+    "react-simplemde-editor": "5.0.2",
+    "rehype-raw": "^6.1.1"
   },
   "devDependencies": {
     "@types/react": "18.0.0",

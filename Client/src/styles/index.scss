@@ -127,10 +127,6 @@ a {
       li {
         padding: 1em 2em;
       }
-
-      li:hover {
-        background-color: $secondary-color;
-      }
     }
 
     // "X" Button
@@ -467,10 +463,6 @@ footer {
           margin-top: 1em;
         }
 
-        li:hover {
-          background-color: $secondary-light;
-          border-radius: 10%;
-        }
       }
     }
   }
@@ -538,6 +530,7 @@ footer {
       display: block;
       position: absolute;
       right: 20px;
+      margin-left: 1em;
       cursor: pointer;
     }
   }

@@ -1,12 +1,9 @@
-import { useState, useContext } from "react";
-import { UserContext } from "../context/UserContex";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../api/apiCalls";
 
 function Login() {
   const history = useNavigate();
-
-  const { setUserState } = useContext(UserContext);
 
   const [alert, setAlert] = useState(false);
   const [user, setUser] = useState({

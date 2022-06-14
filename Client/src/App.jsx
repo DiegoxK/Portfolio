@@ -37,7 +37,7 @@ function App() {
       })
       .catch(() => {
         setUserState(false);
-        console.clear();
+        // console.clear();
       });
   }, []);
 
@@ -74,7 +74,7 @@ function App() {
           </Route>
 
           {/* Blog Page */}
-          <Route path="/posts" element={<BasicLayout />}>
+          <Route path="/posts/" element={<BasicLayout />}>
             <Route
               path=":postid"
               element={userState ? <InfoEntryEdition /> : <InfoEntry />}

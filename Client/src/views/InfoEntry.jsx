@@ -1,14 +1,24 @@
+import ReactMarkdown from "react-markdown";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getOne } from "../../api/apiCalls";
+
 function InfoEntry() {
+  const [post, setPost] = useState([]);
+
+  const { postid } = useParams();
+
+  useEffect(() => {
+    getOne("blog", postid).then((res) => {
+      setPost(res);
+    });
+  }, []);
+
   return (
     <section className="page-info">
       <div className="info-container">
-        <h2>Post1</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam a
-          dolor quaerat? Accusantium sunt asperiores sit cum ducimus cupiditate
-          non tenetur porro consectetur est praesentium animi, magnam
-          reprehenderit harum molestiae? Lorem ipsum dolor sit amet consectetur
-        </p>
+        <h2>{post.title}</h2>
+        <ReactMarkdown>{post.md}</ReactMarkdown>
       </div>
     </section>
   );

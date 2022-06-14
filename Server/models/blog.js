@@ -7,7 +7,20 @@ const blogSchema = new Schema({
     type: String,
     required: true,
   },
+  url: {
+    type: String,
+    required: true,
+  },
   title: {
+    type: String,
+    required: true,
+  },
+  preview: {
+    type: String,
+    required: true,
+    maxlength: 70,
+  },
+  description: {
     type: String,
     required: true,
   },

@@ -1,23 +1,34 @@
+import { useEffect, useState } from "react";
+import { getOne } from "../../../api/apiCalls";
+
 function MyInfoCard() {
+  const [profile, setProfile] = useState([]);
+
+  useEffect(() => {
+    getOne("profile").then((res) => {
+      setProfile(res);
+    });
+  }, []);
+
   return (
     <section className="info-card">
       <div className="profile-container">
         <img
-          src="/assets/PerfilImage.jpg"
+          src={profile.img}
           alt="profile picture"
           className="profile-picture"
         />
 
-        <p>Web & UI Desinger</p>
+        <p>{profile.description}</p>
         <div className="contacts">
-          <a href="#">
-            <img src="/assets/social media/github.svg" alt="" />
+          <a href={profile.gitUrl}>
+            <img src="/assets/social media/github.svg" alt="github" />
           </a>
-          <a href="#">
-            <img src="/assets/social media/linkedin.svg" alt="" />
+          <a href={profile.linkeinUrl}>
+            <img src="/assets/social media/linkedin.svg" alt="linkedin" />
           </a>
-          <a href="#">
-            <img src="/assets/social media/twitter.svg" alt="" />
+          <a href={profile.twitterUrl}>
+            <img src="/assets/social media/twitter.svg" alt="twitter" />
           </a>
         </div>
       </div>

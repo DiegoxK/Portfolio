@@ -1,4 +1,5 @@
 import { useRef, useContext } from "react";
+import { Link } from "react-router-dom";
 import { logout } from "../../api/apiCalls";
 import { UserContext } from "../context/UserContex";
 
@@ -13,9 +14,9 @@ function Header() {
 
   return (
     <header className="header">
-      <a href="/">
+      <Link to="/">
         <img src="/assets/nav/NavName.png" alt="NavName" className="nav-name" />
-      </a>
+      </Link>
 
       <nav>
         <a onClick={toggleMenu} className="hide-desktop">
@@ -32,9 +33,9 @@ function Header() {
           </li>
 
           <li>
-            <a href="/">
+            <Link to="/">
               <img src="/assets/nav/home.png" alt="Home Button" />
-            </a>
+            </Link>
           </li>
 
           <li className="separator">
@@ -42,9 +43,9 @@ function Header() {
           </li>
 
           <li>
-            <a href="/about">
+            <Link to="/about">
               <img src="/assets/nav/About.png" alt="About button" />
-            </a>
+            </Link>
           </li>
 
           <li className="separator">
@@ -52,9 +53,9 @@ function Header() {
           </li>
 
           <li>
-            <a href="/myblog">
+            <Link to="/myblog">
               <img src="/assets/nav/MyBlog.png" alt="Myblog button" />
-            </a>
+            </Link>
           </li>
 
           <li className="separator">
@@ -62,14 +63,32 @@ function Header() {
           </li>
 
           <li>
-            <a href="/projects">
+            <Link to="/projects">
               <img src="/assets/nav/Projects.png" alt="Projects button" />
-            </a>
+            </Link>
           </li>
 
           <li className="separator">
             <div className="v-separator"></div>
           </li>
+          {/* <li>
+            {userState ? (
+              <a
+                onClick={() => {
+                  logout();
+                  window.location.reload();
+                }}
+              >
+                <img
+                  src="/assets/nav/check.svg"
+                  alt="Cerrar la edition"
+                  style={{ width: "33px", cursor: "pointer" }}
+                />
+              </a>
+            ) : (
+              ""
+            )}
+          </li> */}
           <li>
             {userState ? (
               <a
@@ -85,13 +104,13 @@ function Header() {
                 />
               </a>
             ) : (
-              <a href="/login">
+              <Link to="/login">
                 <img
                   src="/assets/nav/edit.svg"
                   alt="Boton de edicion"
                   className="edit-button"
                 />
-              </a>
+              </Link>
             )}
           </li>
         </ul>
