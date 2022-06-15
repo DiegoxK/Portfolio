@@ -1,25 +1,26 @@
+import { useEffect, useState } from "react";
+import { getAll } from "../../../api/apiCalls";
+import AboutEditCard from "../../components/AboutEditCard";
+
 function AboutEdition() {
-  return (
-    <section className="page-info">
-      <div className="info-container">
-        <h2>About Me</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam a
-          dolor quaerat? Accusantium sunt asperiores sit cum ducimus cupiditate
-          non tenetur porro consectetur est praesentium animi, magnam
-          reprehenderit harum molestiae? Lorem ipsum dolor sit amet consectetur
-        </p>
-      </div>
-      <div className="info-container">
-        <h2>The reasons</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam a
-          dolor quaerat? Accusantium sunt asperiores sit cum ducimus cupiditate
-          non tenetur porro consectetur est praesentium animi, magnam
-          reprehenderit harum molestiae? Lorem ipsum dolor sit amet consectetur
-        </p>
-      </div>
-    </section>
+  const [about, setAbout] = useState();
+
+  useEffect(() => {
+    getAll("contents").then((res) => {
+      setAbout(res);
+    });
+  }, []);
+
+  return about ? (
+    <div className="page-info">
+      {about.map((info) => {
+        if (info.section !== "HomeInfo") {
+          return <AboutEditCard key={info._id} info={info} />;
+        }
+      })}
+    </div>
+  ) : (
+    <div>loading</div>
   );
 }
 

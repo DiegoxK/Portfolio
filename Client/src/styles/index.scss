@@ -101,7 +101,7 @@ a {
   }
 
   .edit-button {
-    display:  none;
+    display: none;
   }
 
   // Menu Icon
@@ -374,7 +374,7 @@ footer {
     background-color: $secondary-color;
     box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.25);
     color: $primary-color;
-    margin: 3em 15em; 
+    margin: 3em 15em;
     padding: 2em;
 
     h2 {
@@ -383,8 +383,8 @@ footer {
     }
 
     input {
-      margin: .5em;
-      padding: .9em 1em;
+      margin: 0.5em;
+      padding: 0.9em 1em;
       font-size: 1rem;
       font-weight: 400;
       line-height: 1.5;
@@ -395,8 +395,8 @@ footer {
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-      border-radius: .375rem;
-      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+      border-radius: 0.375rem;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     }
 
     .submit-button {
@@ -408,11 +408,8 @@ footer {
     .login-failed {
       color: $error-color;
     }
-
   }
-  
 }
-
 
 // View for resolutions higher than 992px (Tablet)
 // ===============================================================================
@@ -462,7 +459,6 @@ footer {
           padding: 0 0.4em;
           margin-top: 1em;
         }
-
       }
     }
   }
@@ -476,11 +472,8 @@ footer {
       margin: 1em;
       padding: 1px 5em;
     }
-  
   }
-  
 }
-
 
 // View for resolutions higher than 1200px (Desktop)
 // ===============================================================================
@@ -519,13 +512,13 @@ footer {
           margin-top: 0.3em;
         }
         img {
-          margin-top: 0.3em;
-          height: 40px;
+          margin-top: 0.8em;
+          height: 30px;
         }
       }
     }
 
-    .edit-button{
+    .edit-button {
       width: 2em;
       display: block;
       position: absolute;
@@ -578,7 +571,7 @@ footer {
   .project-container {
     .project-card {
       display: grid;
-      grid-template-columns: auto auto;
+      grid-template-columns: 30% 53%;
       padding: 1em;
       background-color: $sub-color;
       margin-bottom: 2em;

@@ -1,25 +1,34 @@
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "https://esm.sh/rehype-raw@6";
+import { useEffect, useState } from "react";
+import { getAll } from "../../api/apiCalls";
+
 function About() {
-  return (
+  const [about, setAbout] = useState();
+
+  useEffect(() => {
+    getAll("contents").then((res) => {
+      setAbout(res);
+    });
+  }, []);
+
+  return about ? (
     <section className="page-info">
-      <div className="info-container">
-        <h2>About Me</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam a
-          dolor quaerat? Accusantium sunt asperiores sit cum ducimus cupiditate
-          non tenetur porro consectetur est praesentium animi, magnam
-          reprehenderit harum molestiae? Lorem ipsum dolor sit amet consectetur
-        </p>
-      </div>
-      <div className="info-container">
-        <h2>The reasons</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam a
-          dolor quaerat? Accusantium sunt asperiores sit cum ducimus cupiditate
-          non tenetur porro consectetur est praesentium animi, magnam
-          reprehenderit harum molestiae? Lorem ipsum dolor sit amet consectetur
-        </p>
-      </div>
+      {about.map((info) => {
+        if (info.section !== "HomeInfo") {
+          return (
+            <div className="info-container" key={info._id}>
+              <h2>{info.title}</h2>
+              <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                {info.description}
+              </ReactMarkdown>
+            </div>
+          );
+        }
+      })}
     </section>
+  ) : (
+    <div>Loading</div>
   );
 }
 

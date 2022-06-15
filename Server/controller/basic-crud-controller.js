@@ -22,7 +22,7 @@ const getAll = async (req, res) => {
   const schema = typeCheck(type);
 
   try {
-    const data = await schema.find();
+    const data = await schema.find().sort([["date", -1]]);
     res.status(200).json(data);
   } catch (error) {
     return res.status(500).json({
@@ -31,24 +31,22 @@ const getAll = async (req, res) => {
   }
 };
 
-// Get by Id or post url title
+// Get One
 const getById = async (req, res) => {
   const type = req.baseUrl.split("/")[2];
   const schema = typeCheck(type);
   const id = req.params.id;
 
-  let data;
+  console.log(id);
 
+  let data;
   try {
     // If an url key is finded
     data = await schema.findOne({ url: id });
-    if (!data) {
-      // If an section key is finded
-      data = await schema.findById({ section: id });
-    } else if (!data) {
-      // If an id key is finded
-      data = await schema.findById(id);
-    }
+    // if (!data) {
+    //   // If an id key is finded
+    //   data = await schema.findById(id);
+    // }
     return res.status(200).json(data);
   } catch (error) {
     return res.status(400).json({
@@ -64,9 +62,9 @@ const deleteById = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const data = await schema.findByIdAndDelete({ id });
+    const data = await schema.findByIdAndDelete(id);
     if (!data) {
-      return res.status(400).json({
+      return res.status(404).json({
         message: `Couldn't find the ${type} data`,
       });
     }

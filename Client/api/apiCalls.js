@@ -105,6 +105,13 @@ export const addData = async (type, data) => {
 // Edit Data
 export const editData = async (type, id, data) => {
   let response;
+  let url;
+
+  if (data.title) {
+    url = data.title.toLowerCase().replace(/ /g, "-");
+    data = { ...data, url };
+  }
+
   const res = await axios.put(MAIN_URL + `/${type}/${id}`, data);
   response = await res.data;
   return response;

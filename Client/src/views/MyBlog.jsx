@@ -7,7 +7,7 @@ function MyBlog() {
 
   useEffect(() => {
     getAll("blog").then((res) => {
-      setBlogs(res);
+      setBlogs(res.reverse());
     });
   }, []);
 

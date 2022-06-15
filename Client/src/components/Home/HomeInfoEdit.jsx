@@ -1,6 +1,7 @@
 import SimpleMDE from "react-simplemde-editor";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "https://esm.sh/rehype-raw@6";
+import BasicAlert from "../BasicAlert";
 import { useEffect, useState } from "react";
 import { editData, getOne } from "../../../api/apiCalls";
 import "easymde/dist/easymde.min.css";
@@ -20,8 +21,8 @@ function HomeInfoEdit() {
     editData("contents", homeInfo._id, homeInfo).then(() => {
       setAlert(true);
       setTimeout(() => {
-        window.location.reload();
-      }, 1000);
+        setAlert(false);
+      }, 2000);
     });
   };
 
@@ -57,13 +58,7 @@ function HomeInfoEdit() {
           <SimpleMDE value={homeInfo.description} onChange={mdeOnChange} />
           <button type="submit">Editar</button>
           <div>
-            {alert ? (
-              <p style={{ color: "green" }} className="edit-alert">
-                Editado con exito
-              </p>
-            ) : (
-              ""
-            )}
+            <BasicAlert state={alert} />
           </div>
           <h2>{homeInfo.title}</h2>
           <ReactMarkdown rehypePlugins={[rehypeRaw]}>

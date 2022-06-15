@@ -16,18 +16,20 @@ import MyBlog from "./views/MyBlog";
 import MyBlogEdition from "./views/Edition/MyBlogEdition";
 import Projects from "./views/Projects";
 import ProjectsEdition from "./views/Edition/ProjectsEdition";
-import InfoEntry from "./views/InfoEntry";
+import InfoEntryBlog from "./views/InfoEntryBlog";
+import InfoEntryBlogEdition from "./views/Edition/InfoEntryBlogEdition";
 
 // Context
 import { UserContext } from "./context/UserContex";
 
 // Api
 import { getUser } from "../api/apiCalls";
-import InfoEntryEdition from "./views/Edition/InfoEntryEdition";
+import InfoEntryProject from "./views/InfoEntryProject";
+import InfoEntryProjectEdition from "./views/Edition/InfoEntryProjectEdition";
 
 // Main Router
 function App() {
-  const [userState, setUserState] = useState(false);
+  const [userState, setUserState] = useState();
 
   // Edit State
   useEffect(() => {
@@ -69,7 +71,9 @@ function App() {
           <Route path="/project" element={<BasicLayout />}>
             <Route
               path=":projectid"
-              element={userState ? <InfoEntryEdition /> : <InfoEntry />}
+              element={
+                userState ? <InfoEntryProjectEdition /> : <InfoEntryProject />
+              }
             />
           </Route>
 
@@ -77,7 +81,7 @@ function App() {
           <Route path="/posts/" element={<BasicLayout />}>
             <Route
               path=":postid"
-              element={userState ? <InfoEntryEdition /> : <InfoEntry />}
+              element={userState ? <InfoEntryBlogEdition /> : <InfoEntryBlog />}
             />
           </Route>
 

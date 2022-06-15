@@ -4,7 +4,7 @@ import { logout } from "../../api/apiCalls";
 import { UserContext } from "../context/UserContex";
 
 function Header() {
-  const nav = useRef(null);
+  const nav = useRef();
 
   const { userState } = useContext(UserContext);
 
@@ -28,15 +28,15 @@ function Header() {
             <img src="/assets/nav/exit.svg" alt="exit menu" />
           </li>
 
-          <li className="separator">
+          {/* <li className="separator">
             <div className="v-separator"></div>
-          </li>
+          </li> */}
 
-          <li>
+          {/* <li>
             <Link to="/">
               <img src="/assets/nav/home.png" alt="Home Button" />
             </Link>
-          </li>
+          </li> */}
 
           <li className="separator">
             <div className="v-separator"></div>

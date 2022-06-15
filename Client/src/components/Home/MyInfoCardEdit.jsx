@@ -6,7 +6,7 @@ function MyInfoCardEdit() {
   const [alert, setAlert] = useState(false);
 
   useEffect(() => {
-    getOne("profile").then((res) => {
+    getOne("profile", "62a4b580b33c8af1cdc0a98b").then((res) => {
       setProfile(res);
     });
   }, []);
@@ -22,9 +22,6 @@ function MyInfoCardEdit() {
     event.preventDefault();
     editData("profile", profile._id, profile).then((res) => {
       setAlert(true);
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
     });
   };
 

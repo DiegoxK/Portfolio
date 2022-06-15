@@ -7,7 +7,7 @@ function HomeInfo() {
   const [homeInfo, setHomeInfo] = useState([]);
 
   useEffect(() => {
-    getOne("contents", "HomeInfo").then((res) => {
+    getOne("contents", "62a4c10564301afadb814331").then((res) => {
       setHomeInfo(res);
     });
   }, []);

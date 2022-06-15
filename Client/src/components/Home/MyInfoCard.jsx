@@ -5,7 +5,7 @@ function MyInfoCard() {
   const [profile, setProfile] = useState([]);
 
   useEffect(() => {
-    getOne("profile").then((res) => {
+    getOne("profile", "62a4b580b33c8af1cdc0a98b").then((res) => {
       setProfile(res);
     });
   }, []);
