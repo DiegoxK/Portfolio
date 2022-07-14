@@ -3,23 +3,22 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const profileSchema = new Schema({
-  img: {
+  profileImage: {
     type: String,
     required: true,
   },
-  description: {
+
+  git: {
     type: String,
     required: true,
   },
-  gitUrl: {
+
+  linkedin: {
     type: String,
     required: true,
   },
-  linkeinUrl: {
-    type: String,
-    required: true,
-  },
-  twitterUrl: {
+
+  twitter: {
     type: String,
     required: true,
   },

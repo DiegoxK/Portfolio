@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+@import "./variables.scss";
+
+/*
+==== Break Points ===
+Extra small <576px
+Small	sm	≥576px
+Medium	md	≥768px
+Large	lg	≥992px
+Extra large	xl	≥1200px
+Extra extra large	xxl	≥1400px 
+*/
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-image: url("/assets/background.png");
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+.featurette-divider {
+  margin: 0;
+}
+
+// ======================================================================================
+
+// working progress
+@media (max-width: 991.98px) {
+  // Footer
+  .footer-contacts {
+    margin-left: 7em;
+  }
+}
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";

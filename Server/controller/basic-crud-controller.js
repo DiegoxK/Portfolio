@@ -1,4 +1,3 @@
-const Content = require("../models/content");
 const Blog = require("../models/blog");
 const Projects = require("../models/projects");
 const Profile = require("../models/profile");
@@ -9,8 +8,6 @@ const typeCheck = (type) => {
       return Blog;
     case "projects":
       return Projects;
-    case "contents":
-      return Content;
     case "profile":
       return Profile;
   }
@@ -22,7 +19,7 @@ const getAll = async (req, res) => {
   const schema = typeCheck(type);
 
   try {
-    const data = await schema.find().sort([["date", -1]]);
+    const data = await schema.find();
     res.status(200).json(data);
   } catch (error) {
     return res.status(500).json({
@@ -31,26 +28,42 @@ const getAll = async (req, res) => {
   }
 };
 
-// Get One
-const getById = async (req, res) => {
+//Get By id
+const getById = async (schema, id) => {
+  try {
+    const data = await schema.findById(id);
+    return data;
+  } catch (error) {
+    return null;
+  }
+};
+
+// Get One by filter or id
+const getOneByFilter = async (req, res) => {
   const type = req.baseUrl.split("/")[2];
   const schema = typeCheck(type);
-  const id = req.params.id;
-
-  console.log(id);
+  const urlParam = req.params.id;
 
   let data;
+
   try {
-    // If an url key is finded
-    data = await schema.findOne({ url: id });
-    // if (!data) {
-    //   // If an id key is finded
-    //   data = await schema.findById(id);
-    // }
+    data = await schema.findOne({
+      $or: [{ filter: urlParam }, { title: urlParam }],
+    });
+
+    if (!data) {
+      data = await getById(schema, urlParam);
+    }
+
+    if (!data) {
+      return res.status(404).json({ message: "not found" });
+    }
+
     return res.status(200).json(data);
-  } catch (error) {
-    return res.status(400).json({
-      message: `Couldn't find the ${type} data`,
+  } catch (err) {
+    return res.status(500).json({
+      message: `Server error`,
+      err: err,
     });
   }
 };
@@ -110,7 +123,7 @@ const editData = async (req, res) => {
 };
 
 exports.getAll = getAll;
-exports.getById = getById;
+exports.getOneByFilter = getOneByFilter;
 exports.deleteById = deleteById;
 exports.addData = addData;
 exports.editData = editData;

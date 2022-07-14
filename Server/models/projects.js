@@ -7,12 +7,24 @@ const projectSchema = new Schema({
     type: String,
     required: true,
   },
-  url: {
+  iconType: {
+    type: String,
+    required: true,
+  },
+  section: {
+    type: String,
+    required: true,
+  },
+  filter: {
     type: String,
     required: true,
   },
   img: {
     type: String,
+    required: true,
+  },
+  date: {
+    type: Date,
     required: true,
   },
   description: {

@@ -1,121 +1,89 @@
-import { useRef, useContext } from "react";
-import { Link } from "react-router-dom";
-import { logout } from "../../api/apiCalls";
-import { UserContext } from "../context/UserContex";
+import { Link, NavLink } from "react-router-dom";
+import Icons from "../Svg/Icons";
+import PageLogo from "../Svg/PageLogo";
+import LanguageButton from "./Micro Components/LanguageButton";
 
-function Header() {
-  const nav = useRef();
-
-  const { userState } = useContext(UserContext);
-
-  const toggleMenu = () => {
-    nav.current.classList.toggle("hide-mobile");
-  };
-
+function Header({ dark }) {
   return (
-    <header className="header">
-      <Link to="/">
-        <img src="/assets/nav/NavName.png" alt="NavName" className="nav-name" />
-      </Link>
-
-      <nav>
-        <a onClick={toggleMenu} className="hide-desktop">
-          <img src="/assets/nav/ham.svg" alt="toggle-menu" className="menu" />
-        </a>
-
-        <ul ref={nav} className="show-desktop hide-mobile" id="nav">
-          <li onClick={toggleMenu} id="exit" className="exit-btn hide-desktop">
-            <img src="/assets/nav/exit.svg" alt="exit menu" />
-          </li>
-
-          {/* <li className="separator">
-            <div className="v-separator"></div>
-          </li> */}
-
-          {/* <li>
-            <Link to="/">
-              <img src="/assets/nav/home.png" alt="Home Button" />
-            </Link>
-          </li> */}
-
-          <li className="separator">
-            <div className="v-separator"></div>
-          </li>
-
-          <li>
-            <Link to="/about">
-              <img src="/assets/nav/About.png" alt="About button" />
-            </Link>
-          </li>
-
-          <li className="separator">
-            <div className="v-separator"></div>
-          </li>
-
-          <li>
-            <Link to="/myblog">
-              <img src="/assets/nav/MyBlog.png" alt="Myblog button" />
-            </Link>
-          </li>
-
-          <li className="separator">
-            <div className="v-separator"></div>
-          </li>
-
-          <li>
-            <Link to="/projects">
-              <img src="/assets/nav/Projects.png" alt="Projects button" />
-            </Link>
-          </li>
-
-          <li className="separator">
-            <div className="v-separator"></div>
-          </li>
-          {/* <li>
-            {userState ? (
-              <a
-                onClick={() => {
-                  logout();
-                  window.location.reload();
-                }}
+    <nav
+      className={`navbar ${
+        dark ? "navbar-dark" : ""
+      } navbar-expand-lg py-3 header`}
+    >
+      <div className="container">
+        <Link
+          className={`navbar-brand fs-4 fw-bold ${
+            dark ? "text-primary" : "text-dark"
+          }`}
+          to="/"
+        >
+          <PageLogo
+            class1={dark ? "fill-primary" : "fill-secondary"}
+            class2={dark ? "fill-white" : "fill-dark"}
+          />
+          iego Suarez
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <Icons icon="menu" size={30} className="fill-secondary" />
+        </button>
+        <div
+          className="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul className="navbar-nav align-items-end me-1 me-lg-0">
+            <li>
+              <NavLink
+                className={`nav-link fw-bolder`}
+                aria-current="page"
+                to="/"
               >
-                <img
-                  src="/assets/nav/check.svg"
-                  alt="Cerrar la edition"
-                  style={{ width: "33px", cursor: "pointer" }}
-                />
-              </a>
-            ) : (
-              ""
-            )}
-          </li> */}
-          <li>
-            {userState ? (
-              <a
-                onClick={() => {
-                  logout();
-                  window.location.reload();
-                }}
+                HOME
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-link fw-bolder" to="/about">
+                ABOUT
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-link fw-bolder" to="/projects">
+                PROJECTS
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="nav-link fw-bolder" to="/blog">
+                BLOG
+              </NavLink>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                type="button"
+                className={`btn ${
+                  dark ? "btn-primary" : "btn-secondary"
+                } ms-lg-3 fw-bold py-2 px-3 my-2 my-lg-0`}
               >
-                <img
-                  src="/assets/nav/exit.svg"
-                  alt="Cerrar la edition"
-                  className="edit-button"
-                />
-              </a>
-            ) : (
-              <Link to="/login">
-                <img
-                  src="/assets/nav/edit.svg"
-                  alt="Boton de edicion"
-                  className="edit-button"
-                />
+                Contact Now
               </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
-    </header>
+            </li>
+            <li>
+              <LanguageButton
+                dark={dark ? dark : undefined}
+                className="my-2 ms-lg-3 my-lg-0"
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 }
 

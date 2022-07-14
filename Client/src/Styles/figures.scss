@@ -1,0 +1,233 @@
+@import "./variables.scss";
+
+// Svg colors classes
+.fill-primary {
+  fill: $primary;
+}
+
+.stroke-primary {
+  stroke: $primary;
+}
+
+.fill-secondary {
+  fill: $secondary;
+}
+
+.stroke-secondary {
+  stroke: $secondary;
+}
+
+.fill-white {
+  fill: white;
+}
+
+.stroke-white {
+  stroke: white;
+}
+
+.fill-dark {
+  fill: $dark;
+}
+
+.stroke-dark {
+  stroke: $dark;
+}
+
+//Switch icon
+.hero-bottom {
+  margin: 10em 0;
+
+  .switch {
+    box-sizing: border-box;
+
+    width: 40px;
+    height: 93px;
+    left: 706px;
+    top: 642px;
+
+    background: $dark;
+    border: 1px solid $primary;
+    border-radius: 20px;
+
+    .circle {
+      position: relative;
+      width: 26px;
+      height: 26px;
+      top: 8px;
+      left: 16%;
+
+      background: $primary;
+      border-radius: 13px;
+    }
+  }
+}
+
+// Hero section
+.home {
+  z-index: 2;
+  .circles {
+    left: 71%;
+    top: 120px;
+  }
+
+  .line {
+    position: relative;
+    width: 124px;
+    height: 8px;
+    background: $primary;
+    border-radius: 4px;
+  }
+
+  .dots {
+    left: 60%;
+  }
+  .elipse {
+    fill: $primary;
+    top: -107px;
+    left: 36%;
+  }
+  .triangles {
+    bottom: 9%;
+    left: 6%;
+  }
+  .linesCircle {
+    right: 14%;
+    bottom: 17em;
+  }
+  .lines {
+    right: -20em;
+    bottom: 0;
+  }
+  .IDKWTI {
+    width: 2.4em;
+    margin: 16px;
+    height: 16em;
+  }
+  .donut {
+    bottom: 10%;
+    left: 68%;
+  }
+  .donut-2 {
+    bottom: 12%;
+    left: 66%;
+    width: 26px;
+  }
+  .x {
+    bottom: 33%;
+    left: 22%;
+  }
+  .x-2 {
+    bottom: 28%;
+    left: 25%;
+    width: 20px;
+  }
+  .square {
+    top: 10%;
+    left: 10%;
+  }
+  .square-2 {
+    top: 20%;
+    left: 5%;
+  }
+}
+
+// Qualities Section
+.qualities {
+  .x {
+    top: 10%;
+    left: 4%;
+  }
+  .x-2 {
+    top: 16%;
+    left: 6%;
+    width: 17px;
+  }
+  .square {
+    bottom: 11%;
+    right: 9%;
+  }
+  .square-2 {
+    bottom: 5%;
+    right: 4%;
+  }
+}
+
+// Projects Section
+.projects {
+  .elipse {
+    fill: $primary;
+    top: -20%;
+    left: -18%;
+  }
+  .circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    bottom: 5%;
+    right: 5%;
+  }
+  .circle-2 {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    bottom: 14%;
+    right: 8%;
+  }
+  .dots {
+    top: 24%;
+    left: 58%;
+    transform: rotate(69deg);
+  }
+  .x {
+    top: 10%;
+    left: 4%;
+  }
+  .x-2 {
+    top: 16%;
+    left: 6%;
+    width: 17px;
+  }
+  .square {
+    top: 23%;
+    right: 7%;
+  }
+  .square-2 {
+    top: 16%;
+    right: 13%;
+  }
+  .donut {
+    bottom: 13%;
+    left: 4%;
+  }
+  .donut-2 {
+    bottom: 10%;
+    left: 9%;
+    width: 25px;
+  }
+  .circles-2 {
+    left: 27%;
+    bottom: 17%;
+  }
+  .curved-line {
+    top: 21%;
+    left: 26%;
+  }
+  .curved-line-2 {
+    left: 61%;
+    bottom: 17%;
+    transform: rotate(-121deg);
+  }
+  .curved-line-3 {
+    left: 9%;
+    bottom: 41%;
+    transform: rotate(-72deg);
+  }
+  .lines-circle {
+    right: 14%;
+    bottom: 17em;
+  }
+  .triangles {
+    bottom: 64%;
+    left: 9%;
+  }
+}

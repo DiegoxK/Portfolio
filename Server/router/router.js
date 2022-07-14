@@ -2,7 +2,7 @@ const express = require("express");
 
 const {
   getAll,
-  getById,
+  getOneByFilter,
   deleteById,
   addData,
   editData,
@@ -11,7 +11,7 @@ const {
 const router = express.Router();
 
 router.get("", getAll);
-router.get("/:id", getById);
+router.get("/:id", getOneByFilter);
 router.delete("/:id", deleteById);
 router.post("", addData);
 router.put("/:id", editData);

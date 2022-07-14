@@ -1,0 +1,22 @@
+//Bootstrap variables
+//Colors
+$primary: #fc6b3b;
+$secondary: lighten($primary, 5%);
+$dark: #2b2b2b;
+
+// Buttons
+$button-border-radius: 4%;
+$btn-border-radius: $button-border-radius;
+$btn-border-radius-sm: $button-border-radius;
+$btn-border-radius-lg: $button-border-radius;
+
+//NavLinks
+$navbar-light-color: black;
+$navbar-light-hover-color: $secondary;
+$navbar-light-active-color: $secondary;
+$navbar-light-toggler-border-color: $secondary;
+$navbar-light-toggler-icon-bg: url("/assets/nav/menu.svg");
+
+$navbar-dark-color: white;
+$navbar-dark-hover-color: $primary;
+$navbar-dark-active-color: $primary;
