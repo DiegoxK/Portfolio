@@ -5,11 +5,11 @@ const cors = require("cors");
 const morgan = require("morgan");
 require("dotenv").config();
 
-// Page Router
-const router = require("./router/routes");
-
 // Main Server
 const app = express();
+
+// Page Router
+const router = require("./router/routes");
 
 // Middlewares
 app.use(cors({ credentials: true, origin: process.env.SERVER_ORIGIN }));
@@ -30,9 +30,3 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-
-// app.get("/", (req, res, next) => {
-//   res.send("Holainmundo");
-// });
-
-// app.listen(5000);

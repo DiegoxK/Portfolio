@@ -1,0 +1,9 @@
+{
+  "nav": {
+    "home": "INICIO",
+    "about": "SOBRE MI",
+    "projects": "PROJECTOS",
+    "contact": "Contáctame "
+  },
+  "home": {}
+}

@@ -1,4 +1,5 @@
 const express = require("express");
+const router = express.Router();
 
 const {
   getAll,
@@ -7,8 +8,6 @@ const {
   addData,
   editData,
 } = require("../controller/basic-crud-controller");
-
-const router = express.Router();
 
 router.get("", getAll);
 router.get("/:id", getOneByFilter);

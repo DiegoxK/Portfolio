@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "home": "HOME",
+    "about": "ABOUT",
+    "projects": "PROJECTS",
+    "blog": "BLOG",
+    "contact": "Contact Now"
+  },
+  "footer": {
+    "message": "Personal Portfolio"
+  },
+  "home": {
+    "hero": {
+      "title": "Create your dreamed web site today!",
+      "description": "Quickly design and customize responsive mobile-first sites with Bootstrap, the world's most popular front-end open source toolkit, featuring Sass variables and mixins, responsive and grid system.",
+      "projects": "My Projects",
+      "contact": "Contact Me!"
+    },
+    "qualities": {
+      "title": "All you need for the perfect web site",
+      "cards": [
+        {
+          "title": "Featured title",
+          "description": "Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words."
+        },
+        {
+          "title": "Featured title",
+          "description": "Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words."
+        },
+        {
+          "title": "Featured title",
+          "description": "Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words."
+        },
+        {
+          "title": "Featured title",
+          "description": "Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words."
+        },
+        {
+          "title": "Featured title",
+          "description": "Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words."
+        },
+        {
+          "title": "Featured title",
+          "description": "Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words."
+        }
+      ]
+    },
+    "features": [
+      {
+        "title": "Beautiful",
+        "span": "Web Desings",
+        "description": "I am a web designer and developer I made desings for you and your company, the best web interfaces in the world with the best web design services. I am a web designer and developer I made desings for you and your company, the best web interfaces in the world with the best web design services."
+      },
+      {
+        "title": "Management",
+        "span": "Api",
+        "description": "Do you want to buil a secure server for your company? I can build it for you and secure your server. I can secure your server with a strong SSL and a strong firewall. I can secure your server with a strong SSL and a strong firewall. I can secure your server with a strong SSL and a strong firewall. I can secure your server with a strong SSL and a strong firewall. I can secure your server with a strong SSL and a strong firewall."
+      },
+      {
+        "title": "Networking and",
+        "span": "CyberSecurity",
+        "description": "Do you want to buil a secure server for your company? I can build it for you and secure your server. I can secure your server with a strong SSL and a strong firewall. I can secure your server with a strong SSL and a strong firewall. I can secure your server with a strong SSL and a strong firewall. I can secure your server with a strong SSL and a strong firewall. I can secure your server with a strong SSL and a strong firewall."
+      }
+    ],
+    "work": {
+      "title": "My Work",
+      "description": "Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.",
+      "projects": "See Projects"
+    }
+  },
+  "About": {
+    "title": "About Me",
+    "content": [
+      {
+        "title": "Who i am?",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut optio qui, modi deserunt voluptates officia veritatis repellat ab atque nostrum architecto fugiat! Id harum est odit quia voluptates recusandae qui?"
+      },
+      {
+        "title": "Art Direction",
+        "description": [
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut optio qui, modi deserunt voluptates officia veritatis repellat ab atque nostrum architecto fugiat! Id harum est odit quia voluptates recusandae qui?",
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut optio qui, modi deserunt voluptates officia veritatis repellat ab atque nostrum architecto fugiat! Id harum est odit quia voluptates recusandae qui?"
+        ]
+      }
+    ]
+  }
+}

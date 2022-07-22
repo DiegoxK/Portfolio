@@ -1,16 +1,16 @@
-import { useContext } from "react";
-import { Context } from "../../Controller/Store";
+import useTranslation from "../../Custom/useTranslation";
 
 function LanguageButton({ className, dark }) {
-  const { language, setLanguage } = useContext(Context);
+  const { language, setLanguage } = useTranslation();
 
   const languages = {
-    spanish: "/assets/flags/colombia.png",
-    english: "/assets/flags/us.png",
+    es: "/assets/flags/colombia.png",
+    en: "/assets/flags/us.png",
   };
 
   const onClick = (e) => {
     setLanguage(e.target.name);
+    location.reload();
   };
 
   return (
@@ -32,18 +32,16 @@ function LanguageButton({ className, dark }) {
       >
         <li>
           <button
-            name={language === "spanish" ? "english" : "spanish"}
+            name={language === "es" ? "en" : "es"}
             onClick={onClick}
             className="dropdown-item"
             type="button"
           >
             <img
-              name={language === "spanish" ? "english" : "spanish"}
-              src={
-                language === "spanish" ? languages.english : languages.spanish
-              }
+              name={language === "es" ? "en" : "es"}
+              src={language === "es" ? languages.en : languages.es}
               height={25}
-              alt={language === "spanish" ? "english" : "spanish"}
+              alt={language === "es" ? "en" : "es"}
             />
           </button>
         </li>

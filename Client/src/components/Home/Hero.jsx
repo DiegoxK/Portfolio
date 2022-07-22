@@ -1,9 +1,6 @@
 import Figures from "../../Svg/Figures";
-import { useContext } from "react";
-import { Context } from "../../Controller/Store";
 
 function Hero() {
-  const { language } = useContext(Context);
   return (
     <div className="d-flex px-4 py-5 container">
       <div className="text-white  align-self-center">
@@ -13,11 +10,7 @@ function Hero() {
             <div>
               <div className="col-lg-5 my-3">
                 <div className="line mb-2"></div>
-                <h1 className="fw-bold fs-1 lh-1">
-                  {language === "spanish"
-                    ? "Crea tu sitio web soñado el dia de hoy!"
-                    : "Make your dreamed website today!"}
-                </h1>
+                {/* <h1 className="fw-bold fs-1 lh-1">{home.title}</h1> */}
                 <Figures
                   type="dots"
                   className="position-relative dots fill-primary"

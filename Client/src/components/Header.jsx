@@ -1,9 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
+import useTranslation from "../Custom/useTranslation";
 import Icons from "../Svg/Icons";
 import PageLogo from "../Svg/PageLogo";
 import LanguageButton from "./Micro Components/LanguageButton";
 
 function Header({ dark }) {
+  const { t } = useTranslation();
+
   return (
     <nav
       className={`navbar ${
@@ -45,7 +48,7 @@ function Header({ dark }) {
                 aria-current="page"
                 to="/"
               >
-                HOME
+                {t("nav.home")}
               </NavLink>
             </li>
             <li>
